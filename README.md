@@ -3,6 +3,12 @@
 ## 🚀 Project Overview
 This project involves predicting housing prices in California using machine learning techniques. It employs data preprocessing, exploratory data analysis (EDA), and machine learning algorithms to build a predictive model for median house value based on selected features.
 
+## 🚀 Live Demo
+
+You can access the live demo of the application here:  
+🔗 [Live Demo URL](https://pacific-springs-97642-d032570f874f.herokuapp.com/)
+
+
 ---
 
 ## 📊 Exploratory Data Analysis (EDA)
