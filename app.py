@@ -40,7 +40,7 @@ def predict():
     # predict output using the loaded regression
     output= regmodel.predict(final_input)[0]
     # render home.html template with prediction text
-    return render_template("home.html", predict_text="The house prediction is {}".format(output))
+    return render_template("home.html", predict_text="The house prediction is ${:,.2f}".format(output))
 
 if __name__=="__main__":
     app.run(debug=True)
