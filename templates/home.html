@@ -5,103 +5,130 @@
   <title>California House Price Prediction</title>
   <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Arimo&family=Hind:wght@300&family=Open+Sans+Condensed:wght@300&display=swap" rel="stylesheet">
   <style>
+    /* Global Reset */
+    * {
+      box-sizing: border-box;
+    }
+  
+    /* Body & General Styles */
     body {
       font-family: 'Arimo', sans-serif;
       margin: 0;
       padding: 0;
       display: flex;
       justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      background-color: #f0f8ff; /* Light blue background */
+      flex-direction: column;
+      background-color: #f0f8ff;
     }
-
+  
+    /* Wrapper container */
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 10px;
+      max-width: 1200px;
+      width: 100%;
+    }
+  
+    /* Adjust body min-height */
+    body,
+    html {
+      height: auto; /* Avoid forcing 100vh */
+    }
+  
+    /* Login/Form Card */
     .login {
       background: #fff;
-      padding: 40px;
+      padding: 2rem;
       border-radius: 8px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
       text-align: center;
-      max-width: 400px;
-      width: 100%;
+      max-width: 600px;
+      width: 90%;
+      margin-bottom: 1rem;
     }
-
+  
     .login h1 {
-      font-size: 24px;
-      color: #000000;
-      margin-bottom: 20px;
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      color: #333;
     }
-
-    .login input {
-      width: calc(100% - 20px);
-      padding: 10px;
-      margin: 10px 0;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      font-size: 14px;
-    }
-
-    .login input:focus {
-      outline: none;
-      border-color: #007bff;
-      box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
-    }
-
-    .login button {
+  
+    /* Form Inputs */
+    form input[type="text"],
+    form button {
       width: 100%;
       padding: 12px;
-      background-color: #000000;
-      color: #fff;
-      border: none;
+      margin: 8px 0;
+      border: 1px solid #ccc;
       border-radius: 4px;
-      font-size: 16px;
-      cursor: pointer;
-      transition: background-color 0.3s;
+      font-size: 1rem;
+      transition: all 0.2s ease;
     }
-
-    .login button:hover {
-      background-color: #0056b3;
-    }
-
+  
+    /* Prediction Card */
     #prediction-card {
-      margin-top: 20px;
-      margin-left: 36px;
-      padding: 20px;
+      padding: 1.5rem;
       background: #f8f9fa;
       border: 1px solid #ddd;
       border-radius: 8px;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
       text-align: center;
-      font-size: 16px;
+      font-size: 1rem;
       color: #333;
+      max-width: 600px;
+      width: 90%;
+      margin-bottom: 1rem;
     }
-
-    #prediction-card h2 {
-      margin-left: 5px;
-      font-size: 18px;
-      color: #000000;
+  
+    /* Media Queries */
+    @media (max-width: 768px) {
+      form input[type="text"],
+      form button {
+        padding: 10px;
+        font-size: 0.95rem;
+      }
+    }
+  
+    @media (max-width: 480px) {
+      form input[type="text"],
+      form button {
+        padding: 8px;
+        font-size: 0.9rem;
+      }
+  
+      .login {
+        padding: 1.2rem;
+      }
     }
   </style>
+  
 </head>
 
 <body>
-  <div class="login">
-    <h1>California House Price Prediction</h1>
-    <form action="{{ url_for('predict') }}" method="post">
-      <input type="text" name="MedInc" placeholder="Median Income" required="required" />
-      <input type="text" name="HouseAge" placeholder="House Age" required="required" />
-      <input type="text" name="AveRooms" placeholder="Average Rooms" required="required" />
-      <input type="text" name="AveBedrms" placeholder="Average Bedrooms" required="required" />
-      <input type="text" name="Population" placeholder="Population" required="required" />
-      <input type="text" name="AveOccup" placeholder="Average Occupancy" required="required" />
-      <input type="text" name="Latitude" placeholder="Latitude" required="required" />
-      <input type="text" name="Longitude" placeholder="Longitude" required="required" />
-      <button type="submit">Predict</button>
-    </form>
-  </div>
-  <div id="prediction-card">
-    <h2>Prediction Result:</h2>
-    <p>{{ predict_text }}</p>
+  <div class="container">
+    <!-- Login/Form Section -->
+    <div class="login">
+      <h1>California House Price Prediction</h1>
+      <form action="{{ url_for('predict') }}" method="post">
+        <input type="text" name="MedInc" placeholder="Median Income" required="required" />
+        <input type="text" name="HouseAge" placeholder="House Age" required="required" />
+        <input type="text" name="AveRooms" placeholder="Average Rooms" required="required" />
+        <input type="text" name="AveBedrms" placeholder="Average Bedrooms" required="required" />
+        <input type="text" name="Population" placeholder="Population" required="required" />
+        <input type="text" name="AveOccup" placeholder="Average Occupancy" required="required" />
+        <input type="text" name="Latitude" placeholder="Latitude" required="required" />
+        <input type="text" name="Longitude" placeholder="Longitude" required="required" />
+        <button type="submit">Predict</button>
+      </form>
+    </div>
+
+    <!-- Prediction Card Section -->
+    <div id="prediction-card">
+      <h2>Prediction Result:</h2>
+      <p>{{ predict_text }}</p>
+    </div>
   </div>
 </body>
 </html>
