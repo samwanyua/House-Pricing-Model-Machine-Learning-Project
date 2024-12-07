@@ -2,6 +2,7 @@
 <html>
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>California House Price Prediction</title>
   <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Arimo&family=Hind:wght@300&family=Open+Sans+Condensed:wght@300&display=swap" rel="stylesheet">
   <style>
@@ -9,7 +10,7 @@
     * {
       box-sizing: border-box;
     }
-  
+
     /* Body & General Styles */
     body {
       font-family: 'Arimo', sans-serif;
@@ -17,10 +18,12 @@
       padding: 0;
       display: flex;
       justify-content: center;
+      align-items: center;
       flex-direction: column;
       background-color: #f0f8ff;
+      min-height: 100vh;
     }
-  
+
     /* Wrapper container */
     .container {
       display: flex;
@@ -28,15 +31,9 @@
       align-items: center;
       padding: 10px;
       max-width: 1200px;
-      width: 100%;
+      width: 95%;
     }
-  
-    /* Adjust body min-height */
-    body,
-    html {
-      height: auto; /* Avoid forcing 100vh */
-    }
-  
+
     /* Login/Form Card */
     .login {
       background: #fff;
@@ -44,17 +41,17 @@
       border-radius: 8px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
       text-align: center;
+      width: 100%;
       max-width: 600px;
-      width: 90%;
       margin-bottom: 1rem;
     }
-  
+
     .login h1 {
       font-size: 1.8rem;
       margin-bottom: 1rem;
       color: #333;
     }
-  
+
     /* Form Inputs */
     form input[type="text"],
     form button {
@@ -66,7 +63,18 @@
       font-size: 1rem;
       transition: all 0.2s ease;
     }
-  
+
+    form button {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    form button:hover {
+      background-color: #0056b3;
+    }
+
     /* Prediction Card */
     #prediction-card {
       padding: 1.5rem;
@@ -77,33 +85,40 @@
       text-align: center;
       font-size: 1rem;
       color: #333;
+      width: 100%;
       max-width: 600px;
-      width: 90%;
       margin-bottom: 1rem;
     }
-  
+
     /* Media Queries */
     @media (max-width: 768px) {
+      .login {
+        padding: 1.5rem;
+      }
+
       form input[type="text"],
       form button {
         padding: 10px;
         font-size: 0.95rem;
       }
     }
-  
+
     @media (max-width: 480px) {
+      .login {
+        padding: 1rem;
+      }
+
       form input[type="text"],
       form button {
         padding: 8px;
         font-size: 0.9rem;
       }
-  
-      .login {
-        padding: 1.2rem;
+
+      .login h1 {
+        font-size: 1.5rem;
       }
     }
   </style>
-  
 </head>
 
 <body>
