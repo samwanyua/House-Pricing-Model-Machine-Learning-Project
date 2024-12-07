@@ -129,15 +129,7 @@ pip install -r requirements.txt
 - Hyperparameter tuning using cross-validation  
 - Visualization of predictions vs actual house prices for insights.  
 
----
 
-## 🤝 Contact & Collaboration
-
-Feel free to connect with me if you’d like to contribute, collaborate, or learn more about this project!  
-
-**[Your Contact Info]**
-
----
 
 © 2024 | Made with ❤️ by Wanyua
 
