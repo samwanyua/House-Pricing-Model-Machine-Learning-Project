@@ -22,11 +22,11 @@ jobs:
 
       - name: Install Netlify CLI
         run: |
-          npm install -g netlify-cli  # Install Netlify CLI without npm update
+          npm install -g netlify-cli  # Install Netlify CLI
 
-      - name: Authenticate with Netlify using access token
+      - name: Set up Netlify Authentication
         run: |
-          netlify auth --token ${{ secrets.NETLIFY_ACCESS_TOKEN }}
+          echo "NETLIFY_AUTH_TOKEN=${{ secrets.NETLIFY_ACCESS_TOKEN }}" >> $GITHUB_ENV
 
       - name: Deploy to Netlify
         run: |
