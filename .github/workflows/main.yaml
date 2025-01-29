@@ -22,12 +22,10 @@ jobs:
 
       - name: Install Netlify CLI
         run: |
-          npm install -g netlify-cli  # Install Netlify CLI
-
-      - name: Set up Netlify Authentication
-        run: |
-          echo "NETLIFY_AUTH_TOKEN=${{ secrets.NETLIFY_ACCESS_TOKEN }}" >> $GITHUB_ENV
+          npm install -g netlify-cli
 
       - name: Deploy to Netlify
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}  # Pass the token securely
         run: |
           netlify deploy --prod --dir=public
