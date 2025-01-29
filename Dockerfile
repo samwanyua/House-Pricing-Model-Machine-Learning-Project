@@ -5,7 +5,7 @@ FROM python:3.9
 WORKDIR /app
 
 # Copy the application code into the container
-COPY . /app
+COPY . /app/public
 
 # Install dependencies from the requirements.txt
 RUN pip install --no-cache-dir -r requirements.txt
