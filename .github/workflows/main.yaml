@@ -20,6 +20,10 @@ jobs:
         run: |
           docker buildx build --tag my-app .
 
+      - name: Install Netlify CLI
+        run: |
+          npm install -g netlify-cli
+
       - name: Log in to Netlify
         run: |
           echo ${{ secrets.NETLIFY_TOKEN }} | netlify login
