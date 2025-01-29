@@ -18,7 +18,7 @@ jobs:
 
       - name: Build Docker image
         run: |
-          docker build -t my-app .
+          docker buildx build --tag my-app .
 
       - name: Log in to Netlify
         run: |
