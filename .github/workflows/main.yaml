@@ -24,9 +24,9 @@ jobs:
         run: |
           npm install -g netlify-cli
 
-      - name: Log in to Netlify
+      - name: Log in to Netlify using access token
         run: |
-          echo ${{ secrets.NETLIFY_TOKEN }} | netlify login
+          netlify login --token ${{ secrets.NETLIFY_ACCESS_TOKEN }}
 
       - name: Deploy to Netlify
         run: |
