@@ -29,4 +29,4 @@ jobs:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}  
         run: |
-          netlify deploy --prod --dir=public --site $NETLIFY_SITE_ID
+          netlify deploy --prod --dir=. --site $NETLIFY_SITE_ID
