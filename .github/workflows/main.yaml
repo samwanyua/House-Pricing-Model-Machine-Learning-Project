@@ -3,32 +3,30 @@ name: Deploy to Netlify
 on:
   push:
     branches:
-      - main  # Adjust to your main branch name
+      - main
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: '16'  # Adjust to your node version
+      - name: Set up Docker
+        uses: docker/setup-buildx-action@v2
 
-      - name: Install dependencies
-        run: npm install
+      - name: Build Docker image
+        run: |
+          docker buildx build --tag my-app .
 
-      - name: Build the project
-        run: npm run build
-
-      - name: Verify build folder
-        run: ls -al public  # Replace 'build' with your output folder
+      - name: Install Netlify CLI
+        run: |
+          npm install -g netlify-cli
 
       - name: Deploy to Netlify
-        run: netlify deploy --prod --dir=build --site $NETLIFY_SITE_ID
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}  
+        run: |
+          netlify deploy --prod --dir=public --site $NETLIFY_SITE_ID
