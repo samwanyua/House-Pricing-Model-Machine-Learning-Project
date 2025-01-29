@@ -22,8 +22,7 @@ jobs:
 
       - name: Install Netlify CLI
         run: |
-          npm install -g npm  # Ensure npm is up to date
-          npm install -g netlify-cli  # Install Netlify CLI
+          npm install -g netlify-cli  # Install Netlify CLI without npm update
 
       - name: Authenticate with Netlify using access token
         run: |
