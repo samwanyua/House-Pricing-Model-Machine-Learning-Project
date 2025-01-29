@@ -10,7 +10,7 @@ COPY . /app
 # Install dependencies from the requirements.txt
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Set the default port for the app (Netlify will pass the actual port through the environment variable)
+# Set the default port for the app 
 ENV PORT 5000
 
 # Expose port 5000
