@@ -1,0 +1,6 @@
+[build]
+  command = "docker build -t my-app . && docker run house-model"
+  publish = "public"
+
+[[plugins]]
+  package = "@netlify/plugin-functions-installation"
