@@ -1,7 +1,6 @@
 [build]
-  # The command to build your Docker image and run it. We're assuming your app builds static files in the public folder.
   command = "docker build -t my-app . && docker run -p 5000:5000 my-app"
-  publish = "public"
+  publish = "."
 
 [[plugins]]
   package = "@netlify/plugin-functions-installation"
