@@ -22,11 +22,12 @@ jobs:
 
       - name: Install Netlify CLI
         run: |
-          npm install -g netlify-cli
+          npm install -g npm  # Ensure npm is up to date
+          npm install -g netlify-cli  # Install Netlify CLI
 
-      - name: Log in to Netlify using access token
+      - name: Authenticate with Netlify using access token
         run: |
-          netlify login --token ${{ secrets.NETLIFY_ACCESS_TOKEN }}
+          netlify auth --token ${{ secrets.NETLIFY_ACCESS_TOKEN }}
 
       - name: Deploy to Netlify
         run: |
