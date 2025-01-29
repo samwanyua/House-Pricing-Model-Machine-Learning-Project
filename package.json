@@ -1,0 +1,20 @@
+{
+  "name": "california-house-pricing-model",
+  "version": "1.0.0",
+  "description": "## 🚀 Project Overview This project involves predicting housing prices in California using machine learning techniques. It employs data preprocessing, exploratory data analysis (EDA), and machine learning algorithms to build a predictive model for median house value based on selected features.",
+  "homepage": "https://github.com/samwanyua/California-House-Pricing-Model#readme",
+  "bugs": {
+    "url": "https://github.com/samwanyua/California-House-Pricing-Model/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/samwanyua/California-House-Pricing-Model.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
