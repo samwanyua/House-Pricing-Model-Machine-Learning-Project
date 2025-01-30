@@ -6,7 +6,7 @@ This project involves predicting housing prices in California using machine lear
 ## 🚀 Live Demo
 
 You can access the live demo of the application here:  
-🔗 [Live Demo URL](https://pacific-springs-97642-d032570f874f.herokuapp.com/)
+🔗 [Live Demo URL](https://web-production-273c.up.railway.app/)
 
 
 ---
@@ -89,7 +89,7 @@ These visualizations revealed trends and dependencies for feature engineering an
 - **Python** with **scikit-learn**, **pandas**, **matplotlib**, and **seaborn** for data analysis and visualization.  
 - Machine Learning techniques applied include Regression models to predict the **Price**.  
 - **Docker** for containerization to ensure consistent application environments.  
-- **Heroku** for deployment of the application to a live environment.  
+- **Railway** for deployment of the application to a live environment.  
 - **GitHub Actions** for automating CI/CD workflows to streamline testing and deployment.  
 
 
