@@ -77,6 +77,7 @@
 
     /* Prediction Card */
     #prediction-card {
+      display: none; /* Hide initially */
       padding: 1.5rem;
       background: #f8f9fa;
       border: 1px solid #ddd;
@@ -88,6 +89,15 @@
       width: 100%;
       max-width: 600px;
       margin-bottom: 1rem;
+    }
+
+    #prediction-card .close-btn {
+      cursor: pointer;
+      color: #888;
+      font-size: 1.5rem;
+      position: absolute;
+      top: 10px;
+      right: 15px;
     }
 
     /* Media Queries */
@@ -123,10 +133,17 @@
 
 <body>
   <div class="container">
+    <!-- Prediction Card Section -->
+    <div id="prediction-card">
+      <span class="close-btn" onclick="closePrediction()">×</span>
+      <h2>Prediction Result:</h2>
+      <p id="predict-text"></p>
+    </div>
+
     <!-- Form Section -->
     <div class="login">
       <h1>California House Price Prediction</h1>
-      <form action="/predict" method="post">
+      <form id="prediction-form" action="/predict" method="post">
         <input type="text" name="MedInc" placeholder="Median Income" required="required" />
         <input type="text" name="HouseAge" placeholder="House Age" required="required" />
         <input type="text" name="AveRooms" placeholder="Average Rooms" required="required" />
@@ -138,12 +155,33 @@
         <button type="submit">Predict</button>
       </form>
     </div>
-
-    <!-- Prediction Card Section -->
-    <div id="prediction-card">
-      <h2>Prediction Result:</h2>
-      <p>{{ predict_text }}</p>
-    </div>
   </div>
+
+  <script>
+    // Handle form submission with JavaScript to dynamically display prediction result
+    document.getElementById('prediction-form').addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      const formData = new FormData(this);
+      const formValues = Array.from(formData.values()).map(value => parseFloat(value));
+
+      // Make a POST request to the Flask app
+      fetch('/predict', {
+        method: 'POST',
+        body: new URLSearchParams(formData),
+      })
+      .then(response => response.text())
+      .then(result => {
+        document.getElementById('predict-text').innerText = `The house prediction is ${result}`;
+        document.getElementById('prediction-card').style.display = 'block'; // Show the prediction card
+      })
+      .catch(error => console.log('Error:', error));
+    });
+
+    // Close the prediction card
+    function closePrediction() {
+      document.getElementById('prediction-card').style.display = 'none';
+    }
+  </script>
 </body>
 </html>
