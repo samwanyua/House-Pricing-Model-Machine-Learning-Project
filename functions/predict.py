@@ -1,26 +1,29 @@
 import json
 import pickle
 import numpy as np
-from flask import Flask, jsonify, request
+from sklearn.preprocessing import StandardScaler
 
-# Load model and scaler
-regmodel = pickle.load(open('regmodel.pkl', 'rb'))
-scalar = pickle.load(open('scaling.pkl', 'rb'))
-
-# Initialize Flask app for handling requests
-app = Flask(__name__)
-
-@app.route('/predict', methods=['POST'])
-def predict():
-    # Extract form values from POST request and convert them to float
-    data = [float(x) for x in request.form.values()]
-    # Normalize the data using the loaded scaler
-    final_input = scalar.transform(np.array(data).reshape(1, -1))
-    # Predict output using the loaded regression model
-    output = regmodel.predict(final_input)[0]
-    # Return prediction result as a JSON response
-    return jsonify({"prediction": "${:,.2f}".format(output)})
-
-# Netlify handler function
 def handler(event, context):
-    return app(event, context)
+    try:
+        # Load model and scaler
+        regmodel = pickle.load(open('functions/model/regmodel.pkl', 'rb'))
+        scaler = pickle.load(open('functions/model/scaling.pkl', 'rb'))
+
+        # Get JSON input from request
+        body = json.loads(event['body'])
+        data = np.array(list(body.values())).reshape(1, -1)
+
+        # Scale input and make prediction
+        new_data = scaler.transform(data)
+        output = regmodel.predict(new_data)[0]
+
+        return {
+            'statusCode': 200,
+            'body': json.dumps({"prediction": float(output)})
+        }
+
+    except Exception as e:
+        return {
+            'statusCode': 400,
+            'body': json.dumps({"error": str(e)})
+        }
