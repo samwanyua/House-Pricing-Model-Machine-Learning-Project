@@ -1,4 +1,4 @@
-# 🏠 California Housing Price Prediction
+# 🏠 House-Pricing-Model-Machine-Learning-Project
 
 ## 🚀 Project Overview
 This project involves predicting housing prices in California using machine learning techniques. It employs data preprocessing, exploratory data analysis (EDA), and machine learning algorithms to build a predictive model for median house value based on selected features.
