@@ -26,6 +26,6 @@ jobs:
 
       - name: Test Streamlit App (headless)
         run: |
-          streamlit run app.py --server.headless true &
+          streamlit run house_prediction.py --server.headless true &
           sleep 10
           curl -I http://localhost:8501
