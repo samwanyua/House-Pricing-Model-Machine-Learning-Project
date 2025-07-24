@@ -29,6 +29,11 @@ def main():
         prediction = model.predict(scaled_input)
         st.success(f"Estimated House Price: **${prediction[0]*100_000:,.2f}**")
 
+    st.markdown("""
+        ---
+        Made with ❤️ by [Samuel Wanyua](https://github.com/samwanyua)  
+        """)
+
    
 
 if __name__ == '__main__':
