@@ -6,7 +6,7 @@ This project involves predicting housing prices in California using machine lear
 ## 🚀 Live Demo
 
 You can access the live demo of the application here:  
-🔗 [Live Demo URL](https://web-production-273c.up.railway.app/)
+🔗 [Live Demo URL](https://wanyua-house-prediction-model-v1.streamlit.app/)
 
 
 ---
