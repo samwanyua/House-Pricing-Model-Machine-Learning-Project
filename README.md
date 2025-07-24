@@ -1,17 +1,17 @@
-# 🏠 House-Pricing-Model-Machine-Learning-Project
+# House-Pricing-Model-Machine-Learning-Project
 
-## 🚀 Project Overview
+##  Project Overview
 This project involves predicting housing prices in California using machine learning techniques. It employs data preprocessing, exploratory data analysis (EDA), and machine learning algorithms to build a predictive model for median house value based on selected features.
 
-## 🚀 Live Demo
+##  Live Demo
 
 You can access the live demo of the application here:  
-🔗 [Live Demo URL](https://wanyua-house-prediction-model-v1.streamlit.app/)
+ [Live Demo URL](https://wanyua-house-prediction-model-v1.streamlit.app/)
 
 
 ---
 
-## 📊 Exploratory Data Analysis (EDA)
+##  Exploratory Data Analysis (EDA)
 
 ### Dataset Overview
 
@@ -84,24 +84,24 @@ These visualizations revealed trends and dependencies for feature engineering an
 
 ---
 
-## 🛠️ Tech Stack
+##  Tech Stack
 
 - **Python** with **scikit-learn**, **pandas**, **matplotlib**, and **seaborn** for data analysis and visualization.  
 - Machine Learning techniques applied include Regression models to predict the **Price**.  
 - **Docker** for containerization to ensure consistent application environments.  
-- **Railway** for deployment of the application to a live environment.  
+- **Steamlit** for deployment of the application to a live environment.  
 - **GitHub Actions** for automating CI/CD workflows to streamline testing and deployment.  
 
 
 ---
 
-## 💻 Installation
+##  Installation
 
 To get started with this project, follow these steps:
 
 ### 1. Clone the repository
 ```bash
-git clone https://github.com/yourusername/yourrepository.git
+git clone git@github.com:samwanyua/House-Pricing-Model-Machine-Learning-Project.git
 ```
 ### 2. Navigate into the project directory
 ```bash
@@ -122,7 +122,7 @@ source venv/bin/activate
 pip install -r requirements.txt
 ```
 
-## 📈 Next Steps
+##  Next Steps
 
 - Preprocessing data for better model compatibility  
 - Train/test split and model training with different regression models  
