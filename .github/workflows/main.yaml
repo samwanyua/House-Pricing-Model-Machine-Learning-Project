@@ -1,24 +1,31 @@
-name: Deploy to Railway
+name: Build and Test Streamlit App
 
 on:
   push:
     branches:
       - main
+  pull_request:
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
-      - name: Set up Railway CLI
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
         run: |
-          curl -fsSL https://railway.app/install.sh | sh
-          export PATH="$HOME/.railway/bin:$PATH"
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
 
-      - name: Deploy to Railway
-        env:
-          RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
-        run: railway up --service agile-harmony
+      - name: Test Streamlit App (headless)
+        run: |
+          streamlit run app.py --server.headless true &
+          sleep 10
+          curl -I http://localhost:8501
